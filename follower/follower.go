@@ -3,6 +3,7 @@ package follower
 import (
 	"bufio"
 	"bytes"
+	"context"
 	"io"
 	"os"
 	"sync"
@@ -97,7 +98,7 @@ func (t *Follower) follow() error {
 		errChan   = make(chan error, 1)
 	)
 
-	t.watcher, err = fsnotify.NewWatcher()
+	t.watcher, err = fsnotify.NewPollingWatcher(context.Background())
 	if err != nil {
 		return err
 	}
