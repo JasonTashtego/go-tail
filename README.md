@@ -1,3 +1,6 @@
+# Note: Changes from standard go-tail.  
+1. This build leverages the forked fsnotify repo here to use the polling-watcher for better portability across older file systems.
+
 # go-tail
 
 A go package for tailing files. `go get -u github.com/papertrail/go-tail`
